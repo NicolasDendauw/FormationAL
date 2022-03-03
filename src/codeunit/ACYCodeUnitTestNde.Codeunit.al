@@ -18,7 +18,7 @@ codeunit 50100 "ACY CodeUnitTestNde"
         recordToDel: Record Customer;
     begin
         recordToDel.Get(IDCusto);
-        recordToDel.Delete();
+        recordToDel.Delete();//TODO refactor la fonction
     end;
 
 

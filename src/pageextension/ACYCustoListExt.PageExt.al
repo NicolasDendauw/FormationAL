@@ -9,7 +9,7 @@
 /// <summary>
 /// PageExtension ACY CustoListSpe (ID 50100) extends Record Customer List.
 /// </summary>
-pageextension 50100 "ACY CustoListSpe" extends "Customer List"
+pageextension 50100 "ACY CustoListExt" extends "Customer List"
 {
     layout
     {
@@ -19,6 +19,7 @@ pageextension 50100 "ACY CustoListSpe" extends "Customer List"
             field(nde; Rec."ACY nde")
             {
                 ApplicationArea = all;
+                ToolTip = 'New columns';
             }
 
         }
@@ -29,11 +30,11 @@ pageextension 50100 "ACY CustoListSpe" extends "Customer List"
         {
             action("NDE Action")
             {
+                ToolTip = 'Fill NDE columns';
                 ApplicationArea = all;
                 trigger OnAction()
                 var
                     newRecord: Record Customer;
-                    myInt: Integer;
                 begin
                     //affiche un message
                     Message('Bonjour');
@@ -75,10 +76,10 @@ pageextension 50100 "ACY CustoListSpe" extends "Customer List"
             }
             action("Insert Cust")
             {
+                ToolTip = 'Insert customer';
                 ApplicationArea = all;
                 trigger OnAction()
                 var
-                    myInt: Integer;
                     insertRecord: Record Customer;
                 begin
                     insertRecord.Init();
@@ -89,6 +90,7 @@ pageextension 50100 "ACY CustoListSpe" extends "Customer List"
             //Purge one.
             action("Purge one")
             {
+                ToolTip = 'Purge One';
                 ApplicationArea = all;
                 trigger OnAction()
 
@@ -98,13 +100,6 @@ pageextension 50100 "ACY CustoListSpe" extends "Customer List"
                     cu.DeleteOne('nicolas');
 
                 end;
-                /* var
-                     myInt: Integer;
-                     recordToDel: Record Customer;
-                 begin
-                     recordToDel.Get('nicolas');
-                     recordToDel.Delete();
-                 end;*/
             }
         }
     }
